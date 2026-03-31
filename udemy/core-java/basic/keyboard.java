@@ -7,7 +7,7 @@ class keyboard{
         System.out.print("Enter Name :  ");
         String name;
         
-        name = s.next();
+        name = s.nextLine();
         System.out.println("Welcome, " + name);
 
     }
