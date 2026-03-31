@@ -4,13 +4,11 @@ import java.util.*;
 class keyboard{
     public static void main(String args[]){
         Scanner s = new Scanner(System.in);
-        System.out.println("Enter two numbers : ");
-        int a, b, c;
-        a =s.nextInt();
-        b =s.nextInt();
-        c = a+b;
-
-        System.out.println("Sum ==> " + c);
+        System.out.print("Enter Name :  ");
+        String name;
+        
+        name = s.next();
+        System.out.println("Welcome, " + name);
 
     }
 }
