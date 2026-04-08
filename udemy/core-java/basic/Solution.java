@@ -28,22 +28,24 @@ class Person {
 
 class Solution {
 
-    public static Person filterPersons(Person[] persons, int age_filter) {
+    public static List<Person> filterPersons(Person[] persons, int age_filter) {
+        List<Person> res = new ArrayList<>();
+
         for (Person person : persons) {
             if (person.getAge() == age_filter) {
-                return person;
+                res.add(person);
             }
         }
 
-        return null;
+        return res;
     }
 
     public static void main(String args[]) {
 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter No. : ");
-        int n = sc.nextInt();
+        System.out.print("Enter No. : ");
+        int n = Integer.parseInt(sc.nextLine().trim());
 
         // Input
         Person[] persons = new Person[n];
@@ -52,23 +54,26 @@ class Solution {
             persons[i] = new Person(
                     sc.nextLine().trim(),
                     Integer.parseInt(sc.nextLine().trim()),
-                    sc.nextLine().trim(),
-            )
+                    sc.nextLine().trim()
+            );
         }
 
         // function call
         int age_filter = Integer.parseInt(sc.nextLine().trim());
-        Person res = filterPersons(persons, age_filter);
+        List<Person> res = filterPersons(persons, age_filter);
 
         // output
         if (res == null) {
             System.out.println("No Person Found");
         } else {
-            System.out.println(
-                    res.getName() + "\n"
-                    + res.getAge() + "\n"
-                    + res.getDept()
-            );
+            for (Person p : res) {
+                System.out.println(
+                        p.getName() + "\n"
+                        + p.getAge() + "\n"
+                        + p.getDept()
+                );
+                System.out.println();;
+            }
         }
 
     }
